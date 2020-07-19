@@ -39,3 +39,24 @@ print(frac)
 
 print('fraud cases: {}'.format(len(fraud)))
 print('Valid cases: {}'.format(len(valid)))
+
+# corelation matrix
+mat = data.corr()
+fig = plt.figure(figsize=(12, 9))
+
+sns.heatmap(mat, vmax=.8, square=True)
+plt.show()
+
+# get al columns from data frames
+columns = data.columns.tolist()
+
+# filter the columns to remove data we do not want
+columns = [c for c in columns if c not in ["Class"]]
+
+# store the variable
+target = "Class"
+X = data[columns]
+Y = data[target]
+
+print(X.shape)
+print(Y.shape)
