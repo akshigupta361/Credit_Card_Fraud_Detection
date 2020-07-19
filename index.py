@@ -30,3 +30,12 @@ print(data.shape)
 # plot histogram
 data.hist(figsize=(20, 20))
 plt.show()
+
+# determine the number of fraud cases
+fraud = data[data['Class'] == 1]
+valid = data[data['Class'] == 0]
+frac = len(fraud)/float(len(valid))
+print(frac)
+
+print('fraud cases: {}'.format(len(fraud)))
+print('Valid cases: {}'.format(len(valid)))
